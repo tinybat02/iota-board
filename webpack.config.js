@@ -18,6 +18,27 @@ module.exports = {
                 loader: "html-loader"
                 }
             ]
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        },
+        {
+            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+            use: {
+                loader: 'url-loader',
+                options: {
+                    limit: 100000,
+                },
+            },
+        },
+        {
+            test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'file-loader'
+        },
+        {
+            test: /\.otf(\?.*)?$/,
+            use: 'file-loader?name=/fonts/[name].  [ext]&mimetype=application/font-otf'
         }
         ]
     },
