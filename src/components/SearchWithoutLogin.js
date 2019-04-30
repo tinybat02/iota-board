@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Header, Form, Button, Segment} from 'semantic-ui-react'
+import { Grid, Header, Icon, Form, Button, Segment, Dimmer, Loader } from 'semantic-ui-react'
 import DeviceInfoList from './boardDetail/DeviceInfoList'
 import fetchFromIota from '../../utils/IotaAPI'
 
@@ -21,6 +21,7 @@ class SearchWithoutLogin extends Component {
         this.setState({ loading: true })
         fetchFromIota(this.state.bundle).then(result => {
             console.log('From fontend ',result)
+            console.log('From frontend err msg ')
             if (result.error) {
                 this.setState({
                     ...this.state,
@@ -45,11 +46,13 @@ class SearchWithoutLogin extends Component {
                 <Grid.Row>
                     <Grid.Column style={{maxWidth: 450}}>
                         <Header 
-                            as='h2'
+                            icon
                             color='teal'
                             textAlign='center'
-                            content='Enter the bundle'
-                        />
+                        >
+                            <Icon name='search' size='massive'/>
+                            Search for bundle
+                        </Header>
                         <Form size='large'>
                             <Segment>
                                 <Form.Input 
@@ -73,11 +76,12 @@ class SearchWithoutLogin extends Component {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>   
-                    {this.state.loading ? <Segment>Loading</Segment> :
-                        <div>
+                    {this.state.loading 
+                        ? <Loader active inline='centered' size='huge'>Loading</Loader>
+                        : <div>
                             {
                                 this.state.error ? 
-                                <Segment>{'Error ' + this.state.message}</Segment>
+                                <Segment>{this.state.message}</Segment>
                                 : <DeviceInfoList deviceList={this.state.message} />
                             }
                         </div>

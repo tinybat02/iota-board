@@ -1,13 +1,12 @@
 import React from 'react'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
-import { Grid } from 'semantic-ui-react'
 import PropTypes from 'prop-types'
 
 const SimpleMap = ({ coordination }) => {
     return (
         <LeafletMap
             center={coordination}
-            zoom={14}
+            zoom={16}
             maxZoom={22}
             attributionControl={true}
             zoomControl={true}

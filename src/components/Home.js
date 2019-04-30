@@ -10,7 +10,9 @@ const Home = (props) => {
             top: 60,
             left: 0,
             right: 0,
-            bottom: 0}}
+            bottom: 0,
+            borderRadius: 0
+        }}
         >
             <Container 
                 text 

@@ -21,18 +21,16 @@ const fetchFromIota = (bundle) => {
                             }
                         })
                         .catch(err => {
-                            console.log('From inner api call ...')
                             return {
                                 error: true,
-                                message: err
+                                message: err.message
                             }
                         })
             })
             .catch(err => {
-                console.log('from api call ....')
                 return {
                     error: true,
-                    message: err
+                    message: err.message
                 }
             })
 }

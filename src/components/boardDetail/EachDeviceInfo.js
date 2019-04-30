@@ -5,9 +5,8 @@ import PropTypes from 'prop-types'
 const EachDeviceInfo = ({ deviceData }) => {
     return (
         <Segment.Group>
-            <Segment>{'MAC Adress ' + deviceData.deviceMacAddress}</Segment>
-            <Segment>{'Latitude ' + deviceData.lat}</Segment>
-            <Segment>{'Longitude ' + deviceData.lng}</Segment>
+            <Segment>{'MAC Address ' + deviceData.deviceMacAddress}</Segment>            
+            <Segment>{'Timestamp ' + deviceData.timestamp}</Segment>
             <Segment>         
                 {
                     deviceData.wifiAPDetailsArrayList.map(wifi => {
@@ -15,7 +14,7 @@ const EachDeviceInfo = ({ deviceData }) => {
                             <div key={wifi.macAddress}>
                                 <List>
                                     <List.Item>{ 'Frequency ' + wifi.frequency }</List.Item>
-                                    <List.Item>{ 'MAC Adress ' + wifi.macAddress }</List.Item>
+                                    <List.Item>{ 'MAC Address ' + wifi.macAddress }</List.Item>
                                     <List.Item>{ 'Signal Strength ' + wifi.signalStrength}</List.Item>
                                 </List>
                                 <Divider />
@@ -33,3 +32,6 @@ EachDeviceInfo.propTypes = {
 }
 
 export default EachDeviceInfo
+
+/* <Segment>{'Latitude ' + deviceData.lat}</Segment>
+<Segment>{'Longitude ' + deviceData.lng}</Segment> */
