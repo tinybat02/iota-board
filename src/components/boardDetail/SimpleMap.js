@@ -3,34 +3,30 @@ import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
 import PropTypes from 'prop-types'
 
 const SimpleMap = ({ coordination }) => {
-    return (
-        <LeafletMap
-            center={coordination}
-            zoom={16}
-            maxZoom={22}
-            attributionControl={true}
-            zoomControl={true}
-            doubleClickZoom={true}
-            scrollWheelZoom={true}
-            dragging={true}
-            animate={true}
-            easeLinearity={0.35}
-            style={{height: 350, width: '400'}}
-        >
-            <TileLayer
-                url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-            />
-            <Marker position={coordination}>
-                <Popup>
-                    Popup for any custom information.
-                </Popup>
-            </Marker>
-        </LeafletMap>       
-    )
+  return (
+    <LeafletMap
+      center={coordination}
+      zoom={16}
+      maxZoom={22}
+      attributionControl={true}
+      zoomControl={true}
+      doubleClickZoom={true}
+      scrollWheelZoom={true}
+      dragging={true}
+      animate={true}
+      easeLinearity={0.35}
+      style={{ height: 350, width: '400' }}
+    >
+      <TileLayer url='http://{s}.tile.osm.org/{z}/{x}/{y}.png' />
+      <Marker position={coordination}>
+        <Popup>Popup for any custom information.</Popup>
+      </Marker>
+    </LeafletMap>
+  )
 }
 
 SimpleMap.propTypes = {
-    coordination: PropTypes.arrayOf(PropTypes.number).isRequired
+  coordination: PropTypes.arrayOf(PropTypes.number).isRequired
 }
 
 export default SimpleMap
