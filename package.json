@@ -33,7 +33,6 @@
   "dependencies": {
     "@iota/converter": "^1.0.0-beta.12",
     "@iota/core": "^1.0.0-beta.12",
-    "@terrestris/react-geo": "^11.4.0",
     "leaflet": "^1.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
